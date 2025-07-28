@@ -1,1 +1,2 @@
-web: gunicorn bookstore.wsgi
+web: gunicorn EcomBooks.wsgi:application
+
