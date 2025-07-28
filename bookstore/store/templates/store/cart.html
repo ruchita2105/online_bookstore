@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+    <title>Cart - EcomBooks</title>
+    <link rel="stylesheet" href="{% static 'store/css/cart.css' %}">
+</head>
+
+<body>
+    <nav>
+        <h2>📚 EcomBooks</h2>
+        <a href="{% url 'test' %}">Home</a>
+    </nav>
+
+    <main>
+        <section class="cart-container">
+            <h1>Your Cart</h1>
+            <ul id="cart-items"></ul>
+            <div class="cart-summary">
+                <h3>Total: ₹<span id="total">0</span></h3>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartList = document.getElementById("cart-items");
+        const totalElement = document.getElementById("total");
+
+        function renderCart() {
+            cartList.innerHTML = '';
+            let total = 0;
+
+            cartItems.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.classList.add("cart-item");
+                li.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <div class="info">
+            <h4>${item.title}</h4>
+            <p>Price: ₹${item.price}</p>
+            <div class="quantity-controls">
+              <button onclick="decreaseQty(${index})">-</button>
+              <span>${item.quantity || 1}</span>
+              <button onclick="increaseQty(${index})">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+                total += item.price * (item.quantity || 1);
+                cartList.appendChild(li);
+            });
+
+            totalElement.textContent = total;
+        }
+
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            renderCart();
+        }
+
+        function increaseQty(index) {
+            cartItems[index].quantity = (cartItems[index].quantity || 1) + 1;
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            renderCart();
+        }
+
+        function decreaseQty(index) {
+            if ((cartItems[index].quantity || 1) > 1) {
+                cartItems[index].quantity -= 1;
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                renderCart();
+            }
+        }
+
+        function checkout() {
+            alert("Thanks for shopping! Total: ₹" + totalElement.textContent);
+            localStorage.removeItem("cartItems");
+            cartItems = [];
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>

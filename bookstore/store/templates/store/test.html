@@ -1,0 +1,646 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>EcomBooks</title>
+ <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+
+<body>
+  <main>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">📚 EcomBooks</div>
+    <ul class="nav-links">
+      <li><a href="{% url 'test' %}"">Home</a></li>
+      <li><a href="#mystery">Categories</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="{% url 'cart' %}">Cart</a></li>
+      <li><a href="#" id="loginBtn">Login</a>
+        <div id="profileIcon" style="display: none;">
+          <img src="https://i.imgur.com/4YQbW4F.png" alt="Profile" class="profile-img" onclick="toggleProfilePopup()" />
+        </div>
+      </li>
+    </ul> 
+  </nav>
+<main>
+        {% block content %}
+        {% endblock %}
+    
+  <!-- Hero Slider -->
+  <header class="hero-slider">
+    <div class="slides">
+      <div class="slide">
+        <div class="slide-content">
+          <h1>🔥 Big Discounts on Bestsellers</h1>
+          <p>Grab up to 50% off your favorite books today!</p>
+          <a href="#mystery" class="hero-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h1>✨ Recently Added Titles</h1>
+          <p>Check out our latest arrivals and trending reads!</p>
+          <a href="#recent" class="hero-btn">Explore</a>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h1>🏆 Trusted by 10,000+ Readers</h1>
+          <p>Join our growing community of book lovers.</p>
+          <a href="#about" class="hero-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <!-- dots -->
+    <div class="slider-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </header>
+  <!-- Mystery & Thriller -->
+  <!-- Mystery & Thriller -->
+  <section class="genre-section" id="mystery">
+    <h2>Mystery & Thriller</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book1">
+        <div class="book-info">
+          <h3>The Girl with the Dragon Tattoo</h3>
+          <p class="author">Stieg Larsson</p>
+          <p class="price">₹480</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('The Girl with the Dragon Tattoo', 480, 'https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>Big Little Lies</h3>
+          <p class="author">Liane Moriarty</p>
+          <p class="price">₹460</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('Big Little Lies', 460, 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1556485689-4d29b990e7dd?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Silent Patient</h3>
+          <p class="author">Alex Michaelides</p>
+          <p class="price">₹420</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('The Silent Patient', 420, 'https://images.unsplash.com/photo-1556485689-4d29b990e7dd?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1531256379411-6d45b338d0de?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>Gone Girl</h3>
+          <p class="author">Gillian Flynn</p>
+          <p class="price">₹490</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('Gone Girl', 490, 'https://images.unsplash.com/photo-1531256379411-6d45b338d0de?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1480506132288-68f7705954bd?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Da Vinci Code</h3>
+          <p class="author">Dan Brown</p>
+          <p class="price">₹520</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('The Da Vinci Code', 520, 'https://images.unsplash.com/photo-1480506132288-68f7705954bd?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1531265726472-5249f0b18d8d?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>In the Woods</h3>
+          <p class="author">Tana French</p>
+          <p class="price">₹410</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('In the Woods', 410, 'https://images.unsplash.com/photo-1531265726472-5249f0b18d8d?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Reversal</h3>
+          <p class="author">Michael Connelly</p>
+          <p class="price">₹450</p>
+          <a href="cart.html" class="cart-btn"
+            onclick="addToCart('The Reversal', 450, 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80')">Add
+            to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Romance -->
+  <section class="genre-section" id="romance">
+    <h2>Romance</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1589820296156-d6bdc7b83cf5?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book1">
+        <div class="book-info">
+          <h3>Pride and Prejudice</h3>
+          <p class="author">Jane Austen</p>
+          <p class="price">₹350</p>
+          <a href="cart.html"
+            onclick="addToCart('Pride and Prejudice', 350, 'https://images.unsplash.com/photo-1589820296156-d6bdc7b83cf5?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book2">
+        <div class="book-info">
+          <h3>Me Before You</h3>
+          <p class="author">Jojo Moyes</p>
+          <p class="price">₹380</p>
+          <a href="cart.html"
+            onclick="addToCart('Me Before You', 380, 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book3">
+        <div class="book-info">
+          <h3>The Notebook</h3>
+          <p class="author">Nicholas Sparks</p>
+          <p class="price">₹390</p>
+          <a href="cart.html"
+            onclick="addToCart('The Notebook', 390, 'https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book4">
+        <div class="book-info">
+          <h3>Outlander</h3>
+          <p class="author">Diana Gabaldon</p>
+          <p class="price">₹410</p>
+          <a href="cart.html"
+            onclick="addToCart('Outlander', 410, 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1576107232689-d09f56e3571d?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book5">
+        <div class="book-info">
+          <h3>The Rosie Project</h3>
+          <p class="author">Graeme Simsion</p>
+          <p class="price">₹360</p>
+          <a href="cart.html"
+            onclick="addToCart('The Rosie Project', 360, 'https://images.unsplash.com/photo-1576107232689-d09f56e3571d?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1531256379411-6d45b338d0de?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book6">
+        <div class="book-info">
+          <h3>Twilight</h3>
+          <p class="author">Stephenie Meyer</p>
+          <p class="price">₹430</p>
+          <a href="cart.html"
+            onclick="addToCart('Twilight', 430, 'https://images.unsplash.com/photo-1531256379411-6d45b338d0de?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book7">
+        <div class="book-info">
+          <h3>The Fault in Our Stars</h3>
+          <p class="author">John Green</p>
+          <p class="price">₹400</p>
+          <a href="cart.html"
+            onclick="addToCart('The Fault in Our Stars', 400, 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sci‑Fi & Fantasy -->
+  <!-- Sci-Fi & Fantasy -->
+  <section class="genre-section" id="sci-fi">
+    <h2>Sci-Fi & Fantasy</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Dune">
+        <div class="book-info">
+          <h3>Dune</h3>
+          <p class="author">Frank Herbert</p>
+          <p class="price">₹540</p>
+          <a href="cart.html"
+            onclick="addToCart('Dune', 540, 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1473755504818-b72b6dfdc226?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Ender's Game">
+        <div class="book-info">
+          <h3>Ender's Game</h3>
+          <p class="author">Orson Scott Card</p>
+          <p class="price">₹470</p>
+          <a href="cart.html"
+            onclick="addToCart('Ender\'s Game', 470, 'https://images.unsplash.com/photo-1473755504818-b72b6dfdc226?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Foundation">
+        <div class="book-info">
+          <h3>Foundation</h3>
+          <p class="author">Isaac Asimov</p>
+          <p class="price">₹490</p>
+          <a href="cart.html"
+            onclick="addToCart('Foundation', 490, 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Mistborn">
+        <div class="book-info">
+          <h3>Mistborn</h3>
+          <p class="author">Brandon Sanderson</p>
+          <p class="price">₹530</p>
+          <a href="cart.html"
+            onclick="addToCart('Mistborn', 530, 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Neuromancer">
+        <div class="book-info">
+          <h3>Neuromancer</h3>
+          <p class="author">William Gibson</p>
+          <p class="price">₹460</p>
+          <a href="cart.html"
+            onclick="addToCart('Neuromancer', 460, 'https://images.unsplash.com/photo-1512418490979-92798cec1380?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1516893841586-c6d2352f70a3?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="The Hobbit">
+        <div class="book-info">
+          <h3>The Hobbit</h3>
+          <p class="author">J.R.R. Tolkien</p>
+          <p class="price">₹510</p>
+          <a href="cart.html"
+            onclick="addToCart('The Hobbit', 510, 'https://images.unsplash.com/photo-1516893841586-c6d2352f70a3?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="The Name of the Wind">
+        <div class="book-info">
+          <h3>The Name of the Wind</h3>
+          <p class="author">Patrick Rothfuss</p>
+          <p class="price">₹520</p>
+          <a href="cart.html"
+            onclick="addToCart('The Name of the Wind', 520, 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Business & Self Help -->
+  <section class="genre-section" id="business">
+    <h2>Business & Self Help</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Rich Dad Poor Dad">
+        <div class="book-info">
+          <h3>Rich Dad Poor Dad</h3>
+          <p class="author">Robert T. Kiyosaki</p>
+          <p class="price">₹380</p>
+          <a href="cart.html"
+            onclick="addToCart('Rich Dad Poor Dad', 380, 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Atomic Habits">
+        <div class="book-info">
+          <h3>Atomic Habits</h3>
+          <p class="author">James Clear</p>
+          <p class="price">₹450</p>
+          <a href="cart.html"
+            onclick="addToCart('Atomic Habits', 450, 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1526285740291-38c44aeb7c87?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Think and Grow Rich">
+        <div class="book-info">
+          <h3>Think and Grow Rich</h3>
+          <p class="author">Napoleon Hill</p>
+          <p class="price">₹400</p>
+          <a href="cart.html"
+            onclick="addToCart('Think and Grow Rich', 400, 'https://images.unsplash.com/photo-1526285740291-38c44aeb7c87?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1581093588401-b8c32b3a1c57?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="The 7 Habits of Highly Effective People">
+        <div class="book-info">
+          <h3>The 7 Habits of Highly Effective People</h3>
+          <p class="author">Stephen R. Covey</p>
+          <p class="price">₹470</p>
+          <a href="cart.html"
+            onclick="addToCart('The 7 Habits of Highly Effective People', 470, 'https://images.unsplash.com/photo-1581093588401-b8c32b3a1c57?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1593720216444-3c3b02b6ef3c?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Start with Why">
+        <div class="book-info">
+          <h3>Start with Why</h3>
+          <p class="author">Simon Sinek</p>
+          <p class="price">₹430</p>
+          <a href="cart.html"
+            onclick="addToCart('Start with Why', 430, 'https://images.unsplash.com/photo-1593720216444-3c3b02b6ef3c?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="Deep Work">
+        <div class="book-info">
+          <h3>Deep Work</h3>
+          <p class="author">Cal Newport</p>
+          <p class="price">₹390</p>
+          <a href="cart.html"
+            onclick="addToCart('Deep Work', 390, 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- History -->
+  <section class="genre-section" id="history">
+    <h2>History</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="book1">
+        <div class="book-info">
+          <h3>Sapiens: A Brief History of Humankind</h3>
+          <p class="author">Yuval Noah Harari</p>
+          <p class="price">₹450</p>
+          <a href="cart.html"
+            onclick="addToCart('Sapiens: A Brief History of Humankind', 450, 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>Guns, Germs, and Steel</h3>
+          <p class="author">Jared Diamond</p>
+          <p class="price">₹500</p>
+          <a href="cart.html"
+            onclick="addToCart('Guns, Germs, and Steel', 500, 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1587301501406-e9a9d5b4b2c8?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Silk Roads</h3>
+          <p class="author">Peter Frankopan</p>
+          <p class="price">₹470</p>
+          <a href="cart.html"
+            onclick="addToCart('The Silk Roads', 470, 'https://images.unsplash.com/photo-1587301501406-e9a9d5b4b2c8?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The History of the Ancient World</h3>
+          <p class="author">Susan Wise Bauer</p>
+          <p class="price">₹530</p>
+          <a href="cart.html"
+            onclick="addToCart('The History of the Ancient World', 530, 'https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Diary of a Young Girl</h3>
+          <p class="author">Anne Frank</p>
+          <p class="price">₹400</p>
+          <a href="cart.html"
+            onclick="addToCart('The Diary of a Young Girl', 400, 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1562577309-2592ab84b1bc?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>Postwar: A History of Europe Since 1945</h3>
+          <p class="author">Tony Judt</p>
+          <p class="price">₹520</p>
+          <a href="cart.html"
+            onclick="addToCart('Postwar: A History of Europe Since 1945', 520, 'https://images.unsplash.com/photo-1562577309-2592ab84b1bc?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1610878180933-b5f6a2e74586?auto=format&fit=crop&w=300&q=80"
+          class="book-cover" alt="">
+        <div class="book-info">
+          <h3>The Wright Brothers</h3>
+          <p class="author">David McCullough</p>
+          <p class="price">₹490</p>
+          <a href="cart.html"
+            onclick="addToCart('The Wright Brothers', 490, 'https://images.unsplash.com/photo-1610878180933-b5f6a2e74586?auto=format&fit=crop&w=300&q=80')"
+            class="cart-btn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <section
+      style="background: linear-gradient(to right, #9cb2b5, #40a5c6); padding: 4px 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <div style="max-width: 1050px; margin: auto; text-align: center;">
+        <h2 style="font-size: 36px; color: #1a237e; margin-bottom: 5px;">Welcome to EcomBooks!!</h2>
+        <p style="font-size: 16px; color: #444; line-height: 1.8;">
+          At <strong>EcomBooks</strong>, we believe books aren't just pages with ink—they’re doorways to adventure,
+          knowledge, and creativity. Whether you're a curious student, a weekend reader, or a lifelong bookworm, our
+          store is built just for you.
+        </p>
+        <p style="font-size: 16px; color: #444; line-height: 1.8; margin-top: 10px;">
+          Our online collection includes everything from academic texts and competitive prep to timeless novels and
+          trending bestsellers. And the best part? A seamless shopping experience that works beautifully for you.
+        </p>
+        <p style="font-size: 16px; color: #444; line-height: 1.8; margin-top: 10px;">
+          With a responsive design, clean interface, and a commitment to user satisfaction, EcomBooks is more than a
+          store—it's your reading companion. Let’s turn every scroll into a new story.
+        </p>
+      </div>
+    </section>
+    <!-- Profile Popup -->
+    <div id="profilePopup" class="popup-card">
+      <img src="https://i.imgur.com/4YQbW4F.png" alt="Profile" class="popup-pic" />
+      <h3 id="userName">Your Name</h3>
+      <p id="userEmail">email@example.com</p>
+      <div class="profile-popup">
+    <form method="POST" action="{% url 'logout' %}" style="margin: 0;">
+  {% csrf_token %}
+  <button type="submit" class="dropdown-item btn btn-danger" style="width: 70px; text-align: left;">
+    Logout
+  </button>
+</form>
+</div>
+    </div>
+    <footer>
+      <section id="contact" class="section dark-bg">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>We'd love to hear from you! Reach out with any questions or feedback.</p>
+          <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 18px; color: #6b7d86;">
+              Got a minute? Help us improve by sharing your feedback!
+            </p>
+            <a href="https://docs.google.com/forms/d/10ZSr3ZTgEc7TdE8BiFTN24WFeU0FJxKD8Saq4BYh-X4/edit" target="_blank">
+              <button
+                style="background-color: #4c89af; color: white; padding: 12px 24px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;">
+                Give Feedback
+              </button>
+            </a>
+          </div>
+          <div class="contact-details">
+            <p><strong>Email:</strong> support@ecombooks.com</p>
+            <p><strong>Phone:</strong> +91 99887 76543</p>
+            <p><strong>Address:</strong> 2nd Floor, Knowledge Hub, Bengaluru, India</p>
+          </div>
+        </div>
+      </section>
+  </main>
+    </footer>
+    <center>
+      <p>&copy; 2025 EcomBooks. Built with ❤️ for book lovers.</p>
+    </center>
+    </footer>
+
+    <script>
+      const slidesContainer = document.querySelector('.slides');
+      const dots = document.querySelectorAll('.dot');
+      let currentIndex = 0;
+      const totalSlides = document.querySelectorAll('.slide').length;
+
+      function showSlide(index) {
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+      }
+
+      setInterval(nextSlide, 4000);
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          showSlide(currentIndex);
+        });
+      });
+      //User Profile
+      const user = {
+        name: localStorage.getItem("userName") || "Ruchita Kommagani",
+        email: localStorage.getItem("userEmail") || "ruchi@email.com"
+      };
+      window.onload = function () {
+        if (user.name && user.email) {
+          document.getElementById("loginBtn").style.display = "none";
+          document.getElementById("profileIcon").style.display = "inline";
+          document.getElementById("userName").innerText = user.name;
+          document.getElementById("userEmail").innerText = user.email;
+        }
+      };
+
+      function toggleProfilePopup() {
+        const popup = document.getElementById('profilePopup');
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+      }
+      function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+      }
+    </script>
+    <script>
+      function addToCart(title, price, image) {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push({ title, price, image });
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
+    </script>
+</body>
+
+</html>
